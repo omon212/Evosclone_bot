@@ -1,0 +1,16 @@
+version: '3'
+services:
+  django-app:
+    build:
+      context: .
+    ports:
+      - "8000:8000"
+    volumes:
+      - .:/app
+    command: ["python", "manage.py", "runserver", "0.0.0.0:8000"]
+
+  bot:
+    build:
+      context: .
+    working_dir: /app/Bot
+    command: ["python", "bot.py"]
