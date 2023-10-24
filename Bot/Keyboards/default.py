@@ -153,5 +153,69 @@ burgerss = ReplyKeyboardMarkup(
     ],
     resize_keyboard=True
 )
+hotgodsss = ReplyKeyboardMarkup(
+    keyboard=[
+        [
+            KeyboardButton("Hot-dog baguette"),
+            KeyboardButton("Sub tovuq cheese")
+        ],
+        [
+            KeyboardButton("Sub tovuq"),
+            KeyboardButton("Hot-dog baguette double")
+        ],
+        [
+            KeyboardButton("Hot-dog kids"),
+            KeyboardButton("Sub go'sht cheese")
+        ],
+        [
+            KeyboardButton("Hot-dog classic"),
+            KeyboardButton("Sub go'sht")
+        ],
+        [
+            KeyboardButton("Ortga qaytish 🔙")
+        ]
+
+    ],
+    resize_keyboard=True
+)
+
+
+ichimliklarr = ReplyKeyboardMarkup(
+    keyboard=[
+        [
+            KeyboardButton("Sok dena 0,33l"),
+            KeyboardButton("Suv 0,5")
+        ],
+        [
+            KeyboardButton("Pepsi 0,5"),
+            KeyboardButton("Pepsi 1,5")
+        ],
+        [
+            KeyboardButton("Quyib beriladigan Pepsi"),
+            KeyboardButton("Bliss sharbati")
+        ],
+        [
+            KeyboardButton("Amerikano"),
+            KeyboardButton("Latte")
+        ],
+        [
+            KeyboardButton("Ko'k choy"),
+            KeyboardButton("Qora choy")
+        ],
+        [
+            KeyboardButton("Limonli ko'k choy"),
+        ],
+
+        [
+            KeyboardButton("Ortga qaytish 🔙")
+        ]
+
+    ],
+    resize_keyboard=True
+)
+
+
+
+
 
 

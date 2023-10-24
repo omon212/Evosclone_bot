@@ -5,9 +5,10 @@ from aiogram.contrib.middlewares.logging import LoggingMiddleware
 from aiogram.types import InlineKeyboardMarkup, InlineKeyboardButton
 from aiogram.types import ReplyKeyboardRemove
 
-from Keyboards.default import number_p, location, all_buttons, menu, menusetlarrr, lavashssss, shaurma, burgerss
+from Keyboards.default import number_p, location, all_buttons, menu, menusetlarrr, lavashssss, shaurma, burgerss, \
+    hotgodsss, ichimliklarr
 from Keyboards.inline import comboqorachoy, fitcombooo, iftar, donakboksss, com_bo, lavash2, pishloqlig, cheese_buttons, \
-    cheese_buttons2, shaurma_, burgerassdf
+    cheese_buttons2, shaurma_, burgerassdf, hotdog_button, ichimliklar_button
 
 API_TOKEN = '6420073648:AAEh4AowCPo90xm4tJl0rJ_no7Xi4-ZLpO8'
 
@@ -29,6 +30,8 @@ class Evos_state(StatesGroup):
     menu_lavashlar = State()
     menu_shaurma = State()
     menu_burger = State()
+    menu_hotdog = State()
+    menu_ichimliklar = State()
 
 
 son = {
@@ -318,6 +321,192 @@ async def burger_thing(message:types.Message):
 async def menyu(message: types.Message, state: FSMContext):
     await message.answer('Tanlang:', reply_markup=menu)
     await state.finish()
+
+
+
+#-------------------------Hot-Dog-------------------------#
+
+
+
+
+@dp.message_handler(text='Hot-Dog (8)')
+async def menyu(message:types.Message,state:FSMContext):
+    photo = open("Images/hotdog2.jpg","rb")
+    await message.answer_photo(photo=photo,reply_markup=hotgodsss)
+    await Evos_state.menu_hotdog.set()
+
+
+
+@dp.message_handler(text='Hot-dog baguette',state=Evos_state.menu_hotdog)
+async def menyu(message:types.Message,state:FSMContext):
+    photo = open("Images/oddiyhotdog.jpg","rb")
+    await message.answer_photo(photo=photo,reply_markup=hotdog_button,caption="Narx: 14 000 so'm")
+
+
+
+
+@dp.message_handler(text='Sub tovuq cheese',state=Evos_state.menu_hotdog)
+async def menyu(message:types.Message,state:FSMContext):
+    photo = open("Images/subtovuqcheese.jpg","rb")
+    await message.answer_photo(photo=photo,reply_markup=hotdog_button,caption="Narx: 19 000 so'm")
+
+
+
+@dp.message_handler(text='Sub tovuq',state=Evos_state.menu_hotdog)
+async def menyu(message:types.Message,state:FSMContext):
+    photo = open("Images/subtovuq.jpg","rb")
+    await message.answer_photo(photo=photo,reply_markup=hotdog_button,caption="Narx: 17 000 so'm")
+
+
+
+@dp.message_handler(text="Hot-dog baguette double",state=Evos_state.menu_hotdog)
+async def menyu(message:types.Message,state:FSMContext):
+    photo = open("Images/hotdogdouble.jpg","rb")
+    await message.answer_photo(photo=photo,reply_markup=hotdog_button,caption="Narx: 21 000 so'm")
+
+
+
+@dp.message_handler(text="Hot-dog kids",state=Evos_state.menu_hotdog)
+async def menyu(message:types.Message,state:FSMContext):
+    photo = open("Images/hotdogkids.jpg","rb")
+    await message.answer_photo(photo=photo,reply_markup=hotdog_button,caption="Narx: 8 000 so'm")
+
+
+
+@dp.message_handler(text="Sub go'sht cheese",state=Evos_state.menu_hotdog)
+async def menyu(message:types.Message,state:FSMContext):
+    photo = open("Images/subcheese.jpg","rb")
+    await message.answer_photo(photo=photo,reply_markup=hotdog_button,caption="Narx: 21 000 so'm")
+
+
+
+
+@dp.message_handler(text="Hot-dog classic",state=Evos_state.menu_hotdog)
+async def menyu(message:types.Message,state:FSMContext):
+    photo = open("Images/hotdogclassic.jpg","rb")
+    await message.answer_photo(photo=photo,reply_markup=hotdog_button,caption="Narx: 8 000 so'm")
+
+
+
+
+
+@dp.message_handler(text="Sub go'sht",state=Evos_state.menu_hotdog)
+async def menyu(message:types.Message,state:FSMContext):
+    photo = open("Images/subgoshttt.jpg","rb")
+    await message.answer_photo(photo=photo,reply_markup=hotdog_button,caption="Narx: 19 000 so'm")
+
+
+
+@dp.message_handler(text='Ortga qaytish 🔙', state=Evos_state.menu_hotdog)
+async def menyu(message: types.Message, state: FSMContext):
+    await message.answer('Tanlang:', reply_markup=menu)
+    await state.finish()
+
+
+#-------------------------ichimliklar-------------------------#
+
+
+
+@dp.message_handler(text='Ichimliklar (11)',)
+async def ichimliklar(message:types.Message,state:FSMContext):
+    photo = open("Images/ichimliklar.jpg","rb")
+    await message.answer_photo(photo=photo,reply_markup=ichimliklarr)
+    await Evos_state.menu_ichimliklar.set()
+
+@dp.message_handler(text='Sok dena 0,33l', state=Evos_state.menu_ichimliklar)
+async def menyu(message: types.Message, state: FSMContext):
+    photo = open("Images/sokdena.jpg", "rb")
+    await message.answer_photo(photo=photo ,reply_markup=ichimliklar_button,caption="Narx: 10 000 so'm")
+
+
+@dp.message_handler(text='Suv 0,5', state=Evos_state.menu_ichimliklar)
+async def menyu(message: types.Message, state: FSMContext):
+    photo = open("Images/suv05.jpg", "rb")
+    await message.answer_photo(photo=photo ,reply_markup=ichimliklar_button,caption="Narx: 4 000 so'm")
+
+
+
+@dp.message_handler(text='Pepsi 0,5', state=Evos_state.menu_ichimliklar)
+async def menyu(message: types.Message, state: FSMContext):
+    photo = open("Images/pepsi05.jpg", "rb")
+    await message.answer_photo(photo=photo ,reply_markup=ichimliklar_button,caption="Narx: 9 000 so'm")
+
+
+
+@dp.message_handler(text='Pepsi 1,5', state=Evos_state.menu_ichimliklar)
+async def menyu(message: types.Message, state: FSMContext):
+    photo = open("Images/pepsi15.jpg", "rb")
+    await message.answer_photo(photo=photo ,reply_markup=ichimliklar_button,caption="Narx: 17 000 so'm")
+
+
+@dp.message_handler(text='Quyib beriladigan Pepsi', state=Evos_state.menu_ichimliklar)
+async def menyu(message: types.Message, state: FSMContext):
+    photo = open("Images/pepsi04.jpg", "rb")
+    await message.answer_photo(photo=photo ,reply_markup=ichimliklar_button,caption="Narx: 8 000 so'm")
+
+
+
+@dp.message_handler(text='Bliss sharbati', state=Evos_state.menu_ichimliklar)
+async def menyu(message: types.Message, state: FSMContext):
+    photo = open("Images/bliss.jpg", "rb")
+    await message.answer_photo(photo=photo ,reply_markup=ichimliklar_button,caption="Narx: 16 000 so'm")
+
+
+
+@dp.message_handler(text='Amerikano', state=Evos_state.menu_ichimliklar)
+async def menyu(message: types.Message, state: FSMContext):
+    photo = open("Images/amerikano.jpg", "rb")
+    await message.answer_photo(photo=photo ,reply_markup=ichimliklar_button,caption="Narx: 11 000 so'm")
+
+
+
+@dp.message_handler(text='Latte', state=Evos_state.menu_ichimliklar)
+async def menyu(message: types.Message, state: FSMContext):
+    photo = open("Images/latte.jpg", "rb")
+    await message.answer_photo(photo=photo ,reply_markup=ichimliklar_button,caption="Narx: 13 000 so'm")
+
+
+
+@dp.message_handler(text="Ko'k choy", state=Evos_state.menu_ichimliklar)
+async def menyu(message: types.Message, state: FSMContext):
+    photo = open("Images/kokchoy.jpg", "rb")
+    await message.answer_photo(photo=photo ,reply_markup=ichimliklar_button,caption="Narx: 4 000 so'm")
+
+
+
+
+@dp.message_handler(text="Qora choy", state=Evos_state.menu_ichimliklar)
+async def menyu(message: types.Message, state: FSMContext):
+    photo = open("Images/qorachoy.jpg", "rb")
+    await message.answer_photo(photo=photo ,reply_markup=ichimliklar_button,caption="Narx: 4 000 so'm")
+
+
+
+
+@dp.message_handler(text="Limonli ko'k choy", state=Evos_state.menu_ichimliklar)
+async def menyu(message: types.Message, state: FSMContext):
+    photo = open("Images/limonli.jpg", "rb")
+    await message.answer_photo(photo=photo ,reply_markup=ichimliklar_button,caption="Narx: 5 000 so'm")
+
+
+
+@dp.message_handler(text='Ortga qaytish 🔙', state=Evos_state.menu_ichimliklar)
+async def menyu(message: types.Message, state: FSMContext):
+    await message.answer('Tanlang:', reply_markup=menu)
+    await state.finish()
+
+
+
+
+#-------------------------Shirinliklar va desertlar-------------------------#
+
+
+@dp.message_handler(text="Shirinliklar va desertlar (4)")
+async def shirinliklar(message:types.Message):
+    photo = open("Images/.jpg", "rb")
+    await message.answer_photo(photo=photo, reply_markup=ichimliklar_button)
+
+
 
 
 

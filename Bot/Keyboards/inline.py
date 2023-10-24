@@ -145,6 +145,34 @@ burgerassdf = InlineKeyboardMarkup(
 
 )
 
+hotdog_button = InlineKeyboardMarkup(
+    inline_keyboard=[
+        [
+            InlineKeyboardButton('➖', callback_data='hotdog_minus'),
+            InlineKeyboardButton("1", callback_data='jhbh'),
+            InlineKeyboardButton('➕', callback_data='hotdog_plus'),
+        ],
+        [
+            InlineKeyboardButton("Savatga qo'shish", callback_data='hotdog_savat'),
+        ],
+    ],
+
+)
+
+ichimliklar_button = InlineKeyboardMarkup(
+    inline_keyboard=[
+        [
+            InlineKeyboardButton('➖', callback_data='ichimliklar_minus'),
+            InlineKeyboardButton("1", callback_data='jhbh'),
+            InlineKeyboardButton('➕', callback_data='ichimliklar_plus'),
+        ],
+        [
+            InlineKeyboardButton("Savatga qo'shish", callback_data='ichimliklar_savat'),
+        ],
+    ],
+
+)
+
 
 
 

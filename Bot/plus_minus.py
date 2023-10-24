@@ -265,3 +265,157 @@ async def update_iftar_minus(chat_id, message_id, new_son):
 
 
 
+
+
+
+#-----------------hotdog-+-------------#
+
+
+
+
+
+
+
+@dp.callback_query_handler(text='hotdog_minus',state=Evos_state.menu_hotdog)
+async def hotdog_minus(call: types.CallbackQuery):
+    global son
+    user_id = str(call.message.chat.id)
+    print(user_id)
+    fake_son = son.get(user_id, 0)
+    fake_son -= 1
+    print(fake_son)
+    son[user_id] = fake_son
+
+
+
+
+    await update_hotdog_minus(call.message.chat.id, call.message.message_id, fake_son)
+
+
+async def update_hotdog_minus(chat_id, message_id, new_son):
+    new_buttons = InlineKeyboardMarkup(
+        inline_keyboard=[
+            [
+                InlineKeyboardButton('➖', callback_data='hotdog_minus'),
+                InlineKeyboardButton(f"{new_son}", callback_data='son'),
+                InlineKeyboardButton('➕', callback_data='hotdog_plus')
+            ],
+            [
+                InlineKeyboardButton("Savatga qo'shish", callback_data='hotdog_savat'),
+            ],
+        ],
+    )
+
+    # Edit the existing message to update the inline keyboard
+    await bot.edit_message_reply_markup(chat_id=chat_id, message_id=message_id, reply_markup=new_buttons)
+
+@dp.callback_query_handler(text='hotdog_plus',state=Evos_state.menu_hotdog)
+async def hotdog_plus(call: types.CallbackQuery):
+    global son
+    user_id = str(call.message.chat.id)
+    print(user_id)
+    fake_son = son.get(user_id, 0)
+    fake_son += 1
+    print(fake_son)
+    son[user_id] = fake_son
+
+
+
+    await update_hotdog_plus(call.message.chat.id, call.message.message_id, fake_son)
+
+
+async def update_hotdog_plus(chat_id, message_id, new_son):
+    new_buttons = InlineKeyboardMarkup(
+        inline_keyboard=[
+            [
+                InlineKeyboardButton('➖', callback_data='hotdog_minus'),
+                InlineKeyboardButton(f"{new_son}", callback_data='son'),
+                InlineKeyboardButton('➕', callback_data='hotdog_plus')
+            ],
+            [
+                InlineKeyboardButton("Savatga qo'shish", callback_data='hotdog_savat'),
+            ],
+        ],
+    )
+
+    # Edit the existing message to update the inline keyboard
+    await bot.edit_message_reply_markup(chat_id=chat_id, message_id=message_id, reply_markup=new_buttons)
+
+
+
+
+
+#-----------------hotdog-+-------------#
+
+
+
+
+
+
+
+@dp.callback_query_handler(text='ichimliklar_minus',state=Evos_state.menu_ichimliklar)
+async def hotdog_minus(call: types.CallbackQuery):
+    global son
+    user_id = str(call.message.chat.id)
+    print(user_id)
+    fake_son = son.get(user_id, 0)
+    fake_son -= 1
+    print(fake_son)
+    son[user_id] = fake_son
+
+
+
+
+    await update_ichimliklar_minus(call.message.chat.id, call.message.message_id, fake_son)
+
+
+async def update_ichimliklar_minus(chat_id, message_id, new_son):
+    new_buttons = InlineKeyboardMarkup(
+        inline_keyboard=[
+            [
+                InlineKeyboardButton('➖', callback_data='ichimliklar_minus'),
+                InlineKeyboardButton(f"{new_son}", callback_data='son'),
+                InlineKeyboardButton('➕', callback_data='ichimliklar_plus')
+            ],
+            [
+                InlineKeyboardButton("Savatga qo'shish", callback_data='ichimliklar_savat'),
+            ],
+        ],
+    )
+
+    # Edit the existing message to update the inline keyboard
+    await bot.edit_message_reply_markup(chat_id=chat_id, message_id=message_id, reply_markup=new_buttons)
+
+@dp.callback_query_handler(text='ichimliklar_plus',state=Evos_state.menu_ichimliklar)
+async def hotdog_plus(call: types.CallbackQuery):
+    global son
+    user_id = str(call.message.chat.id)
+    print(user_id)
+    fake_son = son.get(user_id, 0)
+    fake_son += 1
+    print(fake_son)
+    son[user_id] = fake_son
+
+
+
+    await update_ichimliklar_plus(call.message.chat.id, call.message.message_id, fake_son)
+
+
+async def update_ichimliklar_plus(chat_id, message_id, new_son):
+    new_buttons = InlineKeyboardMarkup(
+        inline_keyboard=[
+            [
+                InlineKeyboardButton('➖', callback_data='ichimliklar_minus'),
+                InlineKeyboardButton(f"{new_son}", callback_data='son'),
+                InlineKeyboardButton('➕', callback_data='ichimliklar_plus')
+            ],
+            [
+                InlineKeyboardButton("Savatga qo'shish", callback_data='ichimliklar_savat'),
+            ],
+        ],
+    )
+
+    # Edit the existing message to update the inline keyboard
+    await bot.edit_message_reply_markup(chat_id=chat_id, message_id=message_id, reply_markup=new_buttons)
+
+
