@@ -214,8 +214,66 @@ ichimliklarr = ReplyKeyboardMarkup(
     resize_keyboard=True
 )
 
+shirinliklar_button = ReplyKeyboardMarkup(
+    keyboard=[
+        [
+            KeyboardButton('Medovik Asalim'),
+            KeyboardButton('Chizkeyk')
+        ],
+        [
+            KeyboardButton('Donut karameli'),
+            KeyboardButton('Donut mevali')
+        ],
+        [
+            KeyboardButton("Ortga qaytish 🔙")
+        ]
+    ],
+    resize_keyboard=True
+)
+garnirlar = ReplyKeyboardMarkup(
+    keyboard=[
+        [
+            KeyboardButton('Ketchup'),
+            KeyboardButton('Pishloqli sous')
+        ],
+        [
+            KeyboardButton('Chisnokli sous'),
+            KeyboardButton('Chili sous')
+        ],
+        [
+            KeyboardButton('Barbekyu sousi'),
+            KeyboardButton('Guruch')
+        ],
+        [
+            KeyboardButton('Salat'),
+            KeyboardButton('Non')
+        ],
+        [
+            KeyboardButton('Tovuq Strips'),
+            KeyboardButton('Fri')
+        ],
+        [
+            KeyboardButton("Ortga qaytish 🔙")
+        ]
+    ],
+    resize_keyboard=True
+)
 
 
+settings = ReplyKeyboardMarkup(
+    keyboard=[
+        [
+            KeyboardButton('Tilni ozgartirish 🇺🇿'),
 
 
+        ],
+        [
+            KeyboardButton('Malumotlarni ochirib yuborish 🗑️'),
+        ],
+        [
+            KeyboardButton('Orqaga qaytish 🔙')
+        ],
+    ],
+    resize_keyboard=True
+)
 
