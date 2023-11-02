@@ -63,7 +63,7 @@ menu = ReplyKeyboardMarkup(
             KeyboardButton('Garnirlar (10)')
         ],
         [
-            KeyboardButton('Orqaga qaytish 🔙')
+            KeyboardButton('Orqaga qaytish🔙')
         ]
     ],
     resize_keyboard=True

@@ -962,6 +962,8 @@ async def fitter_minus(call: types.CallbackQuery):
     print(fake_son)
     fake_son -= 1
     son[user_id] = fake_son
+    if fake_son <=0:
+        await call.answer("Maxsulot soni 0 dan kichik bolmasligi kerak")
     await update_fitter_minus(call.message.chat.id, call.message.message_id, fake_son)
 
 async def update_fitter_minus(chat_id, message_id, new_son):
@@ -3140,9 +3142,9 @@ async def update_non_minus(chat_id, message_id, new_son):
     new_buttons = InlineKeyboardMarkup(
         inline_keyboard=[
             [
-                InlineKeyboardButton('➕', callback_data='non_plus'),
+                InlineKeyboardButton('➖', callback_data='non_minus'),
                 InlineKeyboardButton(f"{new_son}", callback_data='son'),
-                InlineKeyboardButton('➖', callback_data='non_minus')
+                InlineKeyboardButton('➕', callback_data='non_plus'),
             ],
             [
                 InlineKeyboardButton("Savatga qo'shish", callback_data='non_savat'),
@@ -3166,9 +3168,9 @@ async def update_non_plus(chat_id, message_id, new_son):
     new_buttons = InlineKeyboardMarkup(
         inline_keyboard=[
             [
-                InlineKeyboardButton('➕',callback_data='non_plus'),
+                InlineKeyboardButton('➖', callback_data='non_minus'),
                 InlineKeyboardButton(f"{new_son}", callback_data='son'),
-                InlineKeyboardButton('➖', callback_data='non_minus')
+                InlineKeyboardButton('➕',callback_data='non_plus'),
             ],
             [
                 InlineKeyboardButton("Savatga qo'shish", callback_data='non_savat'),
@@ -3196,9 +3198,9 @@ async def update_fri_plus(chat_id, message_id, new_son):
     new_buttons = InlineKeyboardMarkup(
         inline_keyboard=[
             [
-                InlineKeyboardButton('➕',callback_data='fri_plus'),
+                InlineKeyboardButton('➖', callback_data='fri_minus'),
                 InlineKeyboardButton(f"{new_son}", callback_data='son'),
-                InlineKeyboardButton('➖', callback_data='fri_minus')
+                InlineKeyboardButton('➕',callback_data='fri_plus'),
             ],
             [
                 InlineKeyboardButton("Savatga qo'shish", callback_data='fri_savat'),
@@ -3227,9 +3229,9 @@ async def update_fri_minus(chat_id, message_id, new_son):
     new_buttons = InlineKeyboardMarkup(
         inline_keyboard=[
             [
-                InlineKeyboardButton('➕', callback_data='fri_plus'),
+                InlineKeyboardButton('➖', callback_data='fri_minus'),
                 InlineKeyboardButton(f"{new_son}", callback_data='son'),
-                InlineKeyboardButton('➖', callback_data='fri_minus')
+                InlineKeyboardButton('➕', callback_data='fri_plus'),
             ],
             [
                 InlineKeyboardButton("Savatga qo'shish", callback_data='fri_savat'),
@@ -3295,6 +3297,70 @@ async def update_subgosht_minus(chat_id, message_id, new_son):
             ],
             [
                 InlineKeyboardButton("Savatga qo'shish", callback_data='fri_savat'),
+            ],
+        ],
+
+    )
+
+    await bot.edit_message_reply_markup(chat_id=chat_id, message_id=message_id, reply_markup=new_buttons)
+
+
+#-----guruch------#
+
+
+@dp.callback_query_handler(text='guruch_minus')
+async def subgosht_minus(call:types.CallbackQuery):
+    user_id = str(call.message.chat.id)
+    print(user_id)
+    fake_son = son.get(user_id,29)
+    print(fake_son)
+    fake_son -= 1
+    son[user_id] = fake_son
+    if fake_son<=0:
+        await call.answer("Maxsulot soni 0 dan kichik bolmasligi kerak")
+    await update_guruch_minus(call.message.chat.id, call.message.message_id, fake_son)
+
+
+async def update_guruch_minus(chat_id, message_id, new_son):
+    new_buttons = InlineKeyboardMarkup(
+        inline_keyboard=[
+            [
+                InlineKeyboardButton('➖', callback_data='guruch_minus'),
+                InlineKeyboardButton(f"{new_son}", callback_data='son'),
+                InlineKeyboardButton('➕', callback_data='guruch_plus'),
+            ],
+            [
+                InlineKeyboardButton("Savatga qo'shish", callback_data='guruch_savat'),
+            ],
+        ],
+
+    )
+
+    await bot.edit_message_reply_markup(chat_id=chat_id, message_id=message_id, reply_markup=new_buttons)
+
+@dp.callback_query_handler(text='guruch_plus')
+async def subgosht_minus(call:types.CallbackQuery):
+    user_id = str(call.message.chat.id)
+    print(user_id)
+    fake_son = son.get(user_id,29)
+    print(fake_son)
+    fake_son -= 1
+    son[user_id] = fake_son
+    if fake_son<=0:
+        await call.answer("Maxsulot soni 0 dan kichik bolmasligi kerak")
+    await update_guruch_plus(call.message.chat.id, call.message.message_id, fake_son)
+
+
+async def update_guruch_plus(chat_id, message_id, new_son):
+    new_buttons = InlineKeyboardMarkup(
+        inline_keyboard=[
+            [
+                InlineKeyboardButton('➖', callback_data='guruch_minus'),
+                InlineKeyboardButton(f"{new_son}", callback_data='son'),
+                InlineKeyboardButton('➕', callback_data='guruch_plus'),
+            ],
+            [
+                InlineKeyboardButton("Savatga qo'shish", callback_data='guruch_savat'),
             ],
         ],
 

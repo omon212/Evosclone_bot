@@ -201,6 +201,11 @@ async def menyu(message: types.Message, state: FSMContext):
     await state.finish()
 
 
+@dp.message_handler(text='Orqaga qaytish🔙')
+async def menyu(message: types.Message, state: FSMContext):
+    await message.answer('Tanlang:', reply_markup=all_buttons)
+
+
 #----------------------Lavash----------------------#
 
 
@@ -606,7 +611,7 @@ async def ketsh(message:types.Message):
 @dp.message_handler(text='Tovuq Strips')
 async def ketsh(message:types.Message):
     photo = open("Images/tovuqstrips.jpg", "rb")
-    await message.answer_photo(photo=photo, caption="Narx: 19 000 so'm")
+    await message.answer_photo(photo=photo,reply_markup=tovuqstrips, caption="Narx: 19 000 so'm")
 
 
 @dp.message_handler(text='Pishloqli sous')
@@ -619,7 +624,7 @@ async def pishloqsous(message:types.Message):
     photo = open("Images/chisnoksous.jpg", "rb")
     await message.answer_photo(photo=photo, reply_markup=chisnokli_sous, caption="Narx: 2 000 so'm")
 
-@dp.message_handler(text='Chili sous',state=Evos_state.menu_garnirlar)
+@dp.message_handler(text='Chili sous')
 async def pishloqsous(message:types.Message):
     photo = open("Images/chilisous.jpg", "rb")
     await message.answer_photo(photo=photo, reply_markup=chilisous, caption="Narx: 2 000 so'm")
@@ -639,7 +644,7 @@ async def pishloqsous(message:types.Message):
 
 
 
-@dp.message_handler(text='Non',state=Evos_state.menu_garnirlar)
+@dp.message_handler(text='Non')
 async def pishloqsous(message:types.Message):
     photo = open("Images/non.jpg", "rb")
     await message.answer_photo(photo=photo, reply_markup=non, caption="Narx: 3 000 so'm")
@@ -651,9 +656,7 @@ async def pishloqsous(message:types.Message):
     await message.answer_photo(photo=photo, reply_markup=fri, caption="Narx: 14 000 so'm")
 
 
-async def menyu(message: types.Message, state: FSMContext):
-    await message.answer('Tanlang:', reply_markup=menu)
-    await state.finish()
+
 
 @dp.message_handler(text='Orqaga qaytish 🔙')
 async def manuyu(message:types.Message):
@@ -954,13 +957,13 @@ async def manuyu(message:types.Message):
 #     son[message.from_user.id] = 1
 #     photo = open("Images/chizburger.jpg", "rb")
 #     await message.answer_photo(photo=photo, reply_markup=cheeseburger,caption="Narx: 24 000 so'm")
-#
-# @dp.message_handler(text='Ortga qaytish 🔙')
-# async def menyu(message: types.Message, state: FSMContext):
-#     son[message.from_user.id] = 1
-#     await message.answer('Tanlang:', reply_markup=menu)
-#     await state.finish()
-#
+
+@dp.message_handler(text='Ortga qaytish')
+async def menyu(message: types.Message, state: FSMContext):
+    son[message.from_user.id] = 1
+    await message.answer('Tanlang:', reply_markup=all_buttons)
+    await state.finish()
+
 #
 #
 # #-------------------------Hot-Dog-------------------------#
@@ -1332,6 +1335,7 @@ async def setttings(message:types.Message,state:FSMContext):
 async def til(message:types.Message,state:FSMContext):
     await message.answer('<b>Malumotlaringiz tozalandi</b>')
     await message.answer('/start ni bosib botni qayta ishga tushuring.')
+    await state.finish()
 
 @dp.message_handler(text='Orqaga qaytish 🔙',state=Evos_state.settingsss)
 async def tilasdg(message:types.Message,state:FSMContext):
