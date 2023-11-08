@@ -5,7 +5,7 @@ from aiogram.contrib.middlewares.logging import LoggingMiddleware
 from aiogram.types import InlineKeyboardMarkup, InlineKeyboardButton
 from aiogram.types import ReplyKeyboardRemove
 
-from Keyboards.default import number_p, location, all_buttons, menu, menusetlarrr
+from Keyboards.default import number_p, location, all_buttons, menu, menusetlarrr,buyurtma_berish
 from Keyboards.inline import comboqorachoy, fitcombooo
 
 from bot import dp, Evos_state, bot
@@ -25,13 +25,15 @@ c.execute('''CREATE TABLE IF NOT EXISTS savatcha (
 
 @dp.message_handler(text= "Savat 📥" )
 async def savatcha(message: types.Message):
+    global zakazlar
     c.execute(f"SELECT * FROM savatcha WHERE user_id = {message.chat.id}")
     zakazlar = c.fetchall()
     if zakazlar:
         for i in zakazlar:
-            await message.answer(f'{i[1]} - {i[2]} so\'m - {i[3]} ta')
+            await message.answer(f'{i[1]} - {i[2]} so\'m - {i[3]} ta',reply_markup=buyurtma_berish)
     else:
         await message.answer('Savatcha bo\'sh')
+    await Evos_state.buyurtma_berish.set()
 
 
 
@@ -47,12 +49,12 @@ async def savatcha(call: types.CallbackQuery):
         await c.execute(
             f"UPDATE savatcha SET son = {son[call.message.chat.id]} WHERE user_id = {call.message.chat.id} AND zakaz = 'Combo qora choy' AND narx = {son[call.message.chat.id] * 16000}")
         conn.commit()
-        conn.close()
+
     else:
         await c.execute(
             f"INSERT INTO savatcha VALUES ({call.message.chat.id}, 'Combo qora choy', {son[call.message.chat.id] * 16000}, {son[call.message.chat.id]})")
         conn.commit()
-        conn.close()
+
 
 
 

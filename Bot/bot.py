@@ -73,6 +73,7 @@ class Evos_state(StatesGroup):
     menu_garnirlar = State()
     xabar_yubormoq = State()
     settingsss = State()
+    buyurtma_berish = State()
 
 
 son = {
@@ -1360,4 +1361,5 @@ async def tilasdg(message:types.Message,state:FSMContext):
 if __name__ == '__main__':
     from plus_minus import dp
     from savatcha import dp
+    from buyurtma_berish import dp
     executor.start_polling(dp, skip_updates=True)

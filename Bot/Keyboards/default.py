@@ -277,3 +277,12 @@ settings = ReplyKeyboardMarkup(
     resize_keyboard=True
 )
 
+buyurtma_berish = ReplyKeyboardMarkup(
+    keyboard=[
+        [
+            KeyboardButton('Buyurtma berish 🚚')
+        ]
+    ]
+
+
+)
