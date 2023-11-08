@@ -289,7 +289,7 @@ async def shaurmaaa(message:types.Message,state:FSMContext):
 async def shaurmaadsgasd(message:types.Message):
     son[message.from_user.id] = 1
     photo = open('Images/shurma2.jpg', 'rb')
-    await message.answer_photo(photo=photo,reply_markup=shaurmatovuqg,caption="Narx: 24 000 so'm")
+    await message.answer_photo(photo=photo,reply_markup=shaurmatovuqg ,caption="Narx: 24 000 so'm")
 
 @dp.message_handler(text="Shaurma qalampir mol go'sht",)
 async def shaurmassasd(message:types.Message,state:FSMContext):
