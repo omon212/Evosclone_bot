@@ -25,12 +25,12 @@ c.execute('''CREATE TABLE IF NOT EXISTS savatcha (
 
 @dp.message_handler(text= "Savat 📥" )
 async def savatcha(message: types.Message):
-    global zakazlar
     c.execute(f"SELECT * FROM savatcha WHERE user_id = {message.chat.id}")
     zakazlar = c.fetchall()
     if zakazlar:
         for i in zakazlar:
             await message.answer(f'{i[1]} - {i[2]} so\'m - {i[3]} ta',reply_markup=buyurtma_berish)
+
     else:
         await message.answer('Savatcha bo\'sh')
     await Evos_state.buyurtma_berish.set()
