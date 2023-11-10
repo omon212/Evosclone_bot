@@ -762,6 +762,6 @@ async def buyurtmalarim(message:types.Message):
 
 if __name__ == '__main__':
     from plus_minus import dp
-    from savatcha import dp, c
+    from savatcha import dp,c
     from buyurtma_berish import dp
     executor.start_polling(dp, skip_updates=True)
