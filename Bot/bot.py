@@ -739,7 +739,7 @@ async def til(message:types.Message,state:FSMContext):
     await message.answer('<b>Malumotlaringiz tozalandi</b>')
     await message.answer('/start ni bosib botni qayta ishga tushuring.')
     await state.finish()
-
+#
 @dp.message_handler(text='Orqaga qaytish 🔙',state=Evos_state.settingsss)
 async def tilasdg(message:types.Message,state:FSMContext):
     await message.answer("EVOS | Доставкаbotiga xush kelibsiz!",reply_markup=all_buttons)
