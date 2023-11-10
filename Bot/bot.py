@@ -83,17 +83,30 @@ son = {
 
 @dp.message_handler(commands='start')
 async def command1(message: types.Message, state: FSMContext):
-    son[message.from_user.id] = 1
-    print(son)
-    await message.answer('<b>EVOS | Доставка</b> botiga xush kelibsiz!')
-    await message.answer('''
+    #check database HAVE BEEN USER_ID
+    cursor.execute("SELECT user_id FROM stats WHERE user_id = ?", (message.from_user.id,))
+    user_id = cursor.fetchone()
+    if user_id is None:
+        #if user_id is None, then add user_id to database
+        record_stat(message.from_user.id)
+        await message.answer('<b>EVOS | Доставка</b> botiga xush kelibsiz!', reply_markup=number_p)
+        await message.answer('''
 Avval telefon raqamingizni yuboring,
 yoki <b>+998XX XXXXXXX</b> ko'rinishida yozing.
 
 <a href="https://evos.uz/uz/about/">Evos</a>    
-    ''', reply_markup=number_p)
-    await Evos_state.phone_number.set()
-    await record_stat(message.from_user.id)
+            ''', reply_markup=all_buttons)
+        await Evos_state.phone_number.set()
+        await record_stat(message.from_user.id)
+        son[message.from_user.id] = 1
+
+    else:
+
+
+        son[message.from_user.id] = 1
+        print(son)
+        await message.answer('<b>EVOS | Доставка</b> botiga xush kelibsiz!')
+        await record_stat(message.from_user.id)
 
 
 @dp.message_handler(content_types=types.ContentType.CONTACT, state=Evos_state.phone_number)
@@ -736,6 +749,7 @@ async def setttings(message:types.Message,state:FSMContext):
 
 @dp.message_handler(text='Malumotlarni ochirib yuborish 🗑️',state=Evos_state.settingsss)
 async def til(message:types.Message,state:FSMContext):
+    c.execute(f"DELETE FROM savatcha WHERE user_id = {message.chat.id}")
     await message.answer('<b>Malumotlaringiz tozalandi</b>')
     await message.answer('/start ni bosib botni qayta ishga tushuring.')
     await state.finish()
