@@ -745,7 +745,7 @@ async def tilasdg(message:types.Message,state:FSMContext):
     await message.answer("EVOS | Доставкаbotiga xush kelibsiz!",reply_markup=all_buttons)
     await state.finish()
 
-
+#
 #-------------------------MENING BUYURTMALARIM-------------------------#
 
 @dp.message_handler(text='Mening buyurtmalarim 🍽️')
