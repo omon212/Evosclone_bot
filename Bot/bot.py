@@ -81,6 +81,9 @@ son = {
 }
 
 
+
+
+#-------------------------Start-------------------------#
 @dp.message_handler(commands='start')
 async def command1(message: types.Message, state: FSMContext):
     #check database HAVE BEEN USER_ID
@@ -101,8 +104,6 @@ yoki <b>+998XX XXXXXXX</b> ko'rinishida yozing.
         son[message.from_user.id] = 1
 
     else:
-
-
         son[message.from_user.id] = 1
         print(son)
         await message.answer('<b>EVOS | Доставка</b> botiga xush kelibsiz!')
