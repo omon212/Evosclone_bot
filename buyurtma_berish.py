@@ -10,3 +10,5 @@ async def buyurtma_berish(message:types.Message,state:FSMContext):
     await message.answer("Buyurtmangiz qabul qilindi",reply_markup=ReplyKeyboardRemove())
     await state.finish()
 
+
+
