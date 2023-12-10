@@ -7,7 +7,7 @@ attrs==23.1.0
 Babel==2.9.1
 beautifulsoup4==4.12.2
 bs4==0.0.1
-certifi==2023.5.7
+certifi==2023.5.7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
 charset-normalizer==3.1.0
 click==8.1.6
 colorama==0.4.6
@@ -56,3 +56,7 @@ tzdata==2023.3
 uritemplate==4.1.1
 urllib3==2.0.3
 yarl==1.9.2
+colorama==0.4.6
+config==0.5.1
+coreapi==2.3.3
+coreschema==0.0.4
