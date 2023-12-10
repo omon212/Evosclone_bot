@@ -2,15 +2,8 @@ import logging
 from aiogram import executor
 from aiogram import Bot, Dispatcher, types
 from aiogram.contrib.middlewares.logging import LoggingMiddleware
-from Keyboards.default import number_p, location, all_buttons, menu, menusetlarrr, lavashssss, shaurma, burgerss, \
-    hotgodsss, ichimliklarr, shirinliklar_button, garnirlar, settings
-from Keyboards.inline import comboqorachoy, fitcombooo, iftarrrr, com_bo, donarbokstovuq, iftartovuqgosht, kidscombo, \
-    iftarkoftegrill, donarmol, lavash2, qalampirlavash, mmolgoshtstandard, standardcheese, fitter, tovuqgosht, \
-    shaurmatovuqg, qmolgosht, qtovuqgosht, shmolgosht, gamburger, doubleburgere, doublecheese, cheeseburger, \
-    hotdogbagguate, subtovuqcheese, subtovuq, hotdogbagguated, hotdogkids, subgoshtcheese, hotdogclasic, subgosht, \
-    sokdena, suv05, pepsi05, pepsi15, quyibpepsi, blisharbat, Amerikano, lattle, kokchoy, qorachoyo, limonchoy, asalim, \
-    chizkeyk, karamelin, mevali, ketchup, garnir, tovuqstrips, pishloqli_sous, chisnokli_sous, non, fri, guruch, \
-    chilisous, barbekusous
+from Keyboards.default import *
+from Keyboards.inline import *
 from config import API_TOKEN
 import sqlite3
 
