@@ -1,4 +1,4 @@
-from aiogram.types import KeyboardButton, ReplyKeyboardMarkup, ReplyKeyboardRemove
+from aiogram.types import KeyboardButton, ReplyKeyboardMarkup, ReplyKeyboardRemove, WebAppInfo
 
 number_p = ReplyKeyboardMarkup(
     keyboard=[
@@ -36,6 +36,9 @@ all_buttons = ReplyKeyboardMarkup(
         ],
         [
             KeyboardButton('Biz haqimizda ℹ️')
+        ],
+        [
+            KeyboardButton('Web sahifa 🌐', web_app=WebAppInfo(url='https://evos.uz'))
         ]
     ],
     resize_keyboard=True
