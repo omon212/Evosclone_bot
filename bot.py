@@ -709,7 +709,11 @@ async def til(message: types.Message, state: FSMContext):
     await state.finish()
 
 
-#
+
+
+
+
+
 @dp.message_handler(text='Orqaga qaytish 🔙', state=Evos_state.settingsss)
 async def tilasdg(message: types.Message, state: FSMContext):
     await message.answer("EVOS | Доставкаbotiga xush kelibsiz!", reply_markup=all_buttons)
@@ -718,6 +722,9 @@ async def tilasdg(message: types.Message, state: FSMContext):
 
 #
 # -------------------------MENING BUYURTMALARIM-------------------------#
+
+
+
 
 @dp.message_handler(text='Mening buyurtmalarim 🍽️')
 async def buyurtmalarim(message: types.Message):
@@ -729,7 +736,6 @@ async def buyurtmalarim(message: types.Message):
             await message.answer(f'{i[1]} - {i[2]} so\'m - {i[3]} ta')
     else:
         await message.answer('Savatcha bo\'sh')
-
 
 if __name__ == '__main__':
     from plus_minus import dp
